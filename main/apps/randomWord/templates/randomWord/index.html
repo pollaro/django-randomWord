@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Random</title>
+        <style media="screen">
+            *{
+                text-align: center;
+            }
+            .title{
+                margin-top: 10%;
+            }
+            textarea{
+                resize: none;
+                font-size: 20pt;
+                border: solid thin black;
+                margin-top: 2%;
+                margin-bottom: 1%;
+            }
+            input{
+                border-radius: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="title">
+            Random Word. Attempt #{{request.session.count}}
+        </div>
+        <div class="wordBox">
+            <form action="/generate/" method="post">
+                {% csrf_token %}
+                <textarea>{{word}}</textarea>
+                <br>
+                <input type="submit" value="Generate">
+            </form>
+        </div>
+    </body>
+</html>
